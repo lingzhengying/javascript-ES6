@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.利用RegExp 来创建 正则表达式
+        let regxep = new RegExp(/123/);
+        console.log(regxep);
+
+        // 2.利用字面量创建 正则表达式
+        let rg = /123/;
+        // 3.test 检查是否符合正则表达式的规范
+        console.log(rg.test(123));//tru
+        console.log(rg.test('aaa'));//false
+
+        console.log('----------------');
+        let reg = /^abc/;// ^ 必须后面的数值开头的
+        console.log(reg.test('abc'));//true
+        console.log(reg.test('abcd'));//true
+        console.log(reg.test('aabcd'));//false
+
+        console.log('----------------');
+        let reg1 = /^abc$/;//$必须以它规定的数值结尾的
+        console.log(reg1.test('abc'));//true
+        console.log(reg1.test('abcd'));//false
+        console.log(reg1.test('aaa'));//false
+
+        
+
+    </script>
+</body>
+</html>

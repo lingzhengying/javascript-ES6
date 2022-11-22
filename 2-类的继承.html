@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father {
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sum(){
+                console.log(this.x + this.y);
+            }
+        }
+        // extends 可以使子类继承父类的方法
+        class Son extends Father{
+            constructor(x,y){
+                super(x,y);//super 调用了父类中的构造函数
+            }
+        }
+        let son = new Son(1,2);
+        let son1 = new Son(11,22);
+        son.sum();
+        son1.sum();
+
+        // 在ES6中类没有变量提升 所有必须先定义类 才能通过类实例化对象
+
+        // 类里面的共有属性和方法 一定要添加this使用
+    </script>
+    
+</body>
+</html>

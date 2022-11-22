@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ary =[{
+            id:1,
+            name:'张三'
+        },{
+            id:2,
+            name:'李四'
+        }];
+        // 可以传入两个值 item当前循环的值 index 当前值得索引号
+        var target = ary.find((item) => item.id == 2)
+        console.log(target);
+
+    </script>
+</body>
+</html>

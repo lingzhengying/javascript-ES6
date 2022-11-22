@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符类： []表示有一系列字符可供选择，只要匹配其中一个就可以
+        let rg = /[abc]/;//只要包含有a 或者 b 或者包含c 都返回 true
+        console.log(rg.test('asdas'));//true
+        console.log(rg.test('rty'));//false
+        console.log('--------------------------');
+
+        let rg1 = /^[abc]$/;//三选一 只有是a 或者b 或者c 这三个字母才返回 true
+        console.log(rg1.test('aa'));//false
+        console.log(rg1.test('a'));//true
+        console.log(rg1.test('b'));//true
+        console.log(rg1.test('c'));//true
+        console.log(rg1.test('abc'));//false
+
+        console.log('--------------------------');
+        let rg2 = /^[A-z]$/;//26个英文字母返回的都是true
+        console.log(rg2.test('a'));//true
+        console.log(rg2.test('a'));//true
+        console.log(rg2.test('A'));//true
+        console.log(rg2.test('1'));//false
+
+        console.log('-----------------');
+        let rg3 = /^[a-zA-Z0-9_-]$/;//字符组合
+        console.log(rg3.test('_'));//true
+        console.log(rg3.test('a'));//true
+        console.log(rg3.test('8'));//true
+        console.log(rg3.test('!'));//false
+        console.log('--------------------------');
+
+        let rg4 = /^[^a-zA-Z0-9_-]$/;//里面的^ 表示取反的意思 （里面的值全部取反）
+        console.log(rg4.test('_'));//true
+        console.log(rg4.test('a'));//true
+        console.log(rg4.test('8'));//true
+        console.log(rg4.test('!'));//false
+        console.log('--------------------------');
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Set 数据结构：类似于数组，但是成员的值都是唯一的，没有重复的值
+        // s.add(value):添加某个值 返回Set结构本身
+        // s.delete(value):删除某个值 返回一个布尔值，表示删除是否成功
+        // s.has(value):返回一个布尔值，表示该值是否为Set的成员
+        // s.clear():清除所有成员，没有返回值
+        const s1 = new Set();
+        console.log(s1.size);//0
+
+        const s2 = new Set(['a','b','b','a'])
+        console.log(s2.size);//2
+
+        const ary = [...s2]
+        console.log(ary);//a b
+
+
+        const s = new Set();
+        // s.add(value):添加某个值 返回Set结构本身
+        s.add('a').add('b');
+        console.log(s.size);//2
+
+        // s.delete(value):删除某个值 返回一个布尔值，表示删除是否成功
+        let r1 = s.delete('a');
+        console.log(s.size);//1
+        console.log(r1);//true
+
+        // s.has(value):返回一个布尔值，表示该值是否为Set的成员
+        const r2 = s.has('b')//true
+        console.log(r2);
+
+        // s.clear():清除所有成员，没有返回值
+        const r3 = s.clear()
+        console.log(r3);//undefined
+
+        
+
+        
+    </script>
+</body>
+</html>

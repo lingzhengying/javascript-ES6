@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr{
+            width: 500px;
+        }
+        th{
+            width: 80px;
+            margin-left: 20px;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+     按照价格查询：<input type="text" class="start"> - <input type="text" class="end">
+     <button class="search-price">搜素</button> 按照商品名称查询：<input type="text" class="product">
+     <button class="search-pro">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <script>
+        // 利用新数组方法操作数据
+        let data = [{
+            id:1,
+            pname:'小米',
+            price:3999
+        },
+            {
+            id:2,
+            pname:'华为',
+            price:999
+        },
+            {
+            id:3,
+            pname:'诺基亚',
+            price:2999
+        },
+            {
+            id:4,
+            pname:'vivo',
+            price:4999
+        },
+    ];
+    // 1.获取相应元素
+    let tbody = document.querySelector('tbody');
+    let search_price = document.querySelector('.search-price');
+    let start = document.querySelector('.start');
+    let end = document.querySelector('.end');
+    let product = document.querySelector('.product');
+    let search_pro = document.querySelector('.search-pro');
+    SetDate(data);
+    // 2.把数据渲染到页面中
+    function SetDate(mydata){
+        tbody.innerHTML = '';//先清空原来tbody的数据
+        mydata.forEach(function(value){
+        let tr = document.createElement('tr');//创建行
+        tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+        tbody.appendChild(tr);//将一个节点附加到指定父节点的子节点列表的末尾处
+    });
+    }
+    // 3.根据报价查询商品
+    // 点击按钮，就可以根据商品价格去筛选数组里面的对象
+    search_price.addEventListener('click',function(){
+        let newData = data.filter(function(vaule){
+           return vaule.price >= start.value && vaule.price <= end.value;
+        });
+        // 把筛选完的对象渲染到页面中
+        SetDate(newData);
+    });
+    // 4.用some方法进行遍历 找到对象后就不再进行循环了
+    search_pro.addEventListener('click',function(){
+        let arr = [];//接收数据
+        data.some(function(value){
+          if(value.pname === product.value){
+            arr.push(value);
+            return true;
+          }  
+        });
+        // 把拿到的数据渲染到页面中
+        SetDate(arr);
+    })
+    </script>
+</body>
+</html>

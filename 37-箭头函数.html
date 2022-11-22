@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 用来简化函数定义语法的
+        const fn = () => {
+            console.log(123);
+        }
+        fn();
+
+        // 在箭头函数中 如果函数中只有一句代码，并且代码执行的结果就是函数的返回值， 函数体大括号可以省略
+        const sun = (n1,n2) => n1 + n2; 
+       const result = sun(10,20);
+       console.log(result);//30
+
+    //    在箭头函数中 如果形参只有一个形参外侧的小括号也是可以省略的
+        const fn1 = v => {
+            alert(v);
+        };
+        fn1(20)
+
+        // 箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置中的this（上下文this）
+        function sn(){
+            console.log(this);//name:'zhangsan'
+            return () => {
+                console.log(this);//name:'zhangsan'
+            }
+        }
+        const obj = {name:'zhangsan'};
+        const resFn = sn.call(obj);
+        resFn();
+
+
+        var age = 100;
+        var obj1 = {
+            age:20,
+            say: () => {
+                console.log(this.age);//100
+            }
+        }
+        obj1.say();
+
+    </script>
+</body>
+</html>

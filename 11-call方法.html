@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(x,y){
+            console.log('我想喝奶茶');
+            console.log(this);//指向window
+            console.log(x + y);
+        }
+        let o ={
+            name:'ads'
+        }
+        // 1.call 可以调用函数
+        // fn.call();
+
+        // 2.call() 可以改变这个函数的this指向  此时这个函数的this就指向了o这个对象
+        // 2.call()第一个参数就是改变this指向
+        fn.call(o,12,36);
+
+    </script> 
+</body>
+</html>

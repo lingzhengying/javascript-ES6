@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = [{
+            id:1,
+            name:'家电',
+            good:[{
+                id:11,
+                gname:'冰箱'
+            },{
+                id:12,
+                gname:'洗衣机'
+            }]   
+        },{
+            id:2,
+            name:'服饰'
+        }];
+        // 输入id号，就可以返回相应的数据
+        // 1.利用 forEach 去遍历里面的每一个数据
+        function getID(json,id){
+            let o = [];
+            json.forEach(function(item){
+                if(item.id == id){
+                    // console.log(item);
+                    o = item;
+                    // 2.里层的id
+                } else if(item.good && item.good.length > 0){
+                  o = getID(item.good,id);
+                }
+            });
+            return o;
+        }
+        console.log(getID(data,1));
+        console.log(getID(data,2));
+        console.log(getID(data,11));
+        console.log(getID(data,12));
+    </script>
+</body>
+</html>

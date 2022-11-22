@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="message"></textarea> <button>替换</button>
+    <div></div>
+    <script>
+        // 替换 replace   g是全局匹配  i 不区分大小写  gi全局匹配+不区分大小写
+        let test = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+        btn.onclick = function(){
+           div.innerHTML = test.value.replace(/有病|我|你/g,'**');
+            
+        }
+    </script>
+</body>
+</html>

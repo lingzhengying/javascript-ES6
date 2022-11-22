@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        // 把sing 放原型对象上 方便共享
+        Star.prototype.sing = function(){
+            console.log('我会唱歌');
+        }
+        let lzy = new Star('零征英',22);
+        // console.dir(Star);
+        // 调用原型对象上的 sing
+        lzy.sing();
+    </script>
+</body>
+</html>

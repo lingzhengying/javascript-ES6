@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Star.prototype.sing = function(){
+            console.log('我会唱歌');
+        }
+        let lzy = new Star('零征英',22);
+        lzy.sing();
+        // console.log(lzy);//对象身上系统自己添加一个_proto_ 指向我们构造函数的原型对象
+        console.log(lzy.__proto__ === Star.prototype);
+        // 方法的查找规则：首先去看lzy 对象身上是否有sing 方法，如果有就执行这个对象身上的sing
+        // 如果没有sing这个方法 这个方法.因为有__proto__的存在，就去构造函数原型对象prototyp身上去找
+    </script>
+</body>
+</html>

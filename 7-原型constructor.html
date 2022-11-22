@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+        // 通常情况下，我们需要手动调用 constructor 这个属性指回原来的构造函数
+        Star.prototype = {
+            constructor:Star,
+            sing:function(){
+                console.log('我会游泳');
+            },
+            mor:function(){
+                console.log('我会唱歌');
+            }
+        }
+        let lzy = new Star('零征英',22);
+        console.log(Star.prototype.constructor);
+        console.log(lzy.__proto__.constructor);
+
+    </script>
+</body>
+</html>

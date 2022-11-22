@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 量词符：用来设定某个模式出现的次数
+        let rge = /^a$/;
+
+        // * 相当于 >= 0 可以出现0次或者很多次
+        let rge1 = /^a*$/;
+        console.log(rge1.test(''));//true
+        console.log(rge1.test('a'));//true
+        console.log(rge1.test('aaa'));//true
+        console.log('--------------'); 
+
+        // + 相当于 >= 1 可以出现1次或者很多次
+        rge2 = /^a+$/;
+        console.log(rge2.test(''));//false
+        console.log(rge2.test('a'));//true
+        console.log(rge2.test('aaa'));//true
+        console.log('--------------');
+
+        // ？ 相当于1 || 0 出现0次 或者1次
+        let rge3 = /^a?$/;
+        console.log(rge3.test(''));//true
+        console.log(rge3.test('a'));//true
+        console.log(rge3.test('aaa'));///false
+        console.log('--------------');
+
+        // {3} 就是重复三次
+        let rge4 = /^a{3}$/;
+        console.log(rge4.test(''));//false
+        console.log(rge4.test('a'));//false
+        console.log(rge4.test('aaa'));//true
+        console.log('--------------');
+
+
+        // {3,} 大于等于3
+        let rge5 = /^a{3,}$/;
+        console.log(rge5.test(''));//false
+        console.log(rge5.test('a'));//false
+        console.log(rge5.test('aaa'));//true
+        console.log(rge5.test('aaaa'));//true
+        console.log('--------------');
+
+
+        // {3, 6} 大于等于3 小于等于6
+        let rge6 = /^a{3,6}$/;
+        console.log(rge6.test(''));//false
+        console.log(rge6.test('a'));//false
+        console.log(rge6.test('aaa'));//true
+        console.log(rge6.test('aaaaaaaaaaaaaa'));//false
+        console.log('--------------');
+
+
+        // (abc){3} ()表示优先级
+        let rge7 = /^(abc){3}$/;
+        console.log(rge7.test('abc'));//false
+        console.log(rge7.test('abcabcabc'));//true
+        console.log(rge7.test('abccc'));//false
+    </script>
+</body>
+</html>
